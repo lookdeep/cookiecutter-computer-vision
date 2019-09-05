@@ -42,9 +42,12 @@ lint:
 gitinit:
 	@echo ">>> Initializing project as a git. This will fail if git@github.com:lookdeep/{{ cookiecutter.repo_name }} does not exist"
 	git init
-	git add
-	git commit -m"Initializing project {{cookiecutter.project_name}} with cookiecutter."
+	git add .gitignore
+	git commit -m"Adding .gitignore"
 	git remote add origin git@github.com:lookdeep/{{ cookiecutter.repo_name }}
+	git push -u origin master
+	git add .
+	git commit -m"Initializing project {{cookiecutter.project_name}} with cookiecutter."
 	git push -u origin master
 
 ## Upload Data to S3
