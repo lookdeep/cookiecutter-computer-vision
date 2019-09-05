@@ -78,8 +78,8 @@ else
 	@echo ">>> Installing virtualenvwrapper if not already intalled."
 	$(PYTHON_INTERPRETER) -m venv .venv
 	@echo ">>> Creating a new virtual environment."
-	@bash -c "source .venv/bin/activate"
-	@echo ">>>  Activating virtual environment. use \`deactivate\` to stop working in it. "
+	source .venv/bin/activate
+	@echo ">>> Activating virtual environment. use \`deactivate\` to stop working in it."
 endif
 
 ## Test python environment is setup correctly
