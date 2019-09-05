@@ -38,6 +38,15 @@ clean:
 lint:
 	flake8 {{cookiecutter.src_name}}
 
+## Initialize {{ cookiecutter.project_name }} as a git
+gitinit:
+	@echo ">>> Initializing project as a git. This will fail if {{ cookiecutter.repo_name }} does not exist"
+	git init
+	git add
+	git commit -m"Initializing project {{cookiecutter.project_name}} with cookiecutter."
+	git remote add origin git@github.com:lookdeep/{{ cookiecutter.repo_name }}
+	git push -u origin master
+
 ## Upload Data to S3
 sync_data_to_s3:
 ifeq (default,$(PROFILE))
