@@ -3,7 +3,7 @@
 #################################################################################
 # GLOBALS                                                                       #
 #################################################################################
-SHELL := /bin/bash
+
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 BUCKET = {{ cookiecutter.s3_bucket }}
 PROFILE = {{ cookiecutter.aws_profile }}
@@ -40,7 +40,7 @@ lint:
 
 ## Initialize {{ cookiecutter.project_name }} as a git
 gitinit:
-	@echo ">>> Initializing project as a git. This will fail if {{ cookiecutter.repo_name }} does not exist"
+	@echo ">>> Initializing project as a git. This will fail if git@github.com:lookdeep/{{ cookiecutter.repo_name }} does not exist"
 	git init
 	git add
 	git commit -m"Initializing project {{cookiecutter.project_name}} with cookiecutter."
@@ -78,8 +78,7 @@ else
 	@echo ">>> Installing virtualenvwrapper if not already intalled."
 	$(PYTHON_INTERPRETER) -m venv .venv
 	@echo ">>> Creating a new virtual environment."
-	source .venv/bin/activate
-	@echo ">>> Activating virtual environment. use \`deactivate\` to stop working in it."
+	@echo ">>> Activate virtual environment with source .venv/bin/activate.\nN.B. Do this before invoking `make gitinit`"
 endif
 
 ## Test python environment is setup correctly
