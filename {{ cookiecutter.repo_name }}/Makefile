@@ -78,7 +78,7 @@ else
 	@echo ">>> Installing virtualenvwrapper if not already intalled."
 	$(PYTHON_INTERPRETER) -m venv .venv
 	@echo ">>> Creating a new virtual environment."
-	@echo ">>> Activate virtual environment with source .venv/bin/activate.\nN.B. Do this before invoking `make gitinit`"
+	@echo ">>> Activate virtual environment with source .venv/bin/activate.\nN.B. Do this before invoking \`make gitinit\`"
 endif
 
 ## Test python environment is setup correctly
